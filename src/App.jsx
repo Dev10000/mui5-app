@@ -1,7 +1,21 @@
 import React from 'react';
+import { Stack, Box } from '@mui/material';
+import Sidebar from './components/Sidebar';
+import Feed from './components/Feed';
+import Rightbar from './components/Rightbar';
+import Navbar from './components/Navbar';
 
 function App() {
-  return <div className="app">Hello MUI 5</div>;
+  return (
+    <Box>
+      <Navbar />
+      <Stack direction="row" spacing={2} justifyContent="space-between">
+        <Sidebar />
+        <Feed />
+        <Rightbar />
+      </Stack>
+    </Box>
+  );
 }
 
 export default App;
