@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Home,
   AccountBox,
@@ -19,7 +20,7 @@ import {
   Switch,
 } from '@mui/material';
 
-function Sidebar() {
+function Sidebar({ mode, setMode }) {
   return (
     <Box flex={1} p={2} sx={{ display: { xs: 'none', sm: 'block' } }}>
       <Box position="fixed">
@@ -92,7 +93,9 @@ function Sidebar() {
               <ListItemIcon>
                 <ModeNight />
               </ListItemIcon>
-              <Switch />
+              <Switch
+                onChange={() => setMode(mode === 'light' ? 'dark' : 'light')}
+              />
             </ListItemButton>
           </ListItem>
         </List>
@@ -100,5 +103,10 @@ function Sidebar() {
     </Box>
   );
 }
+
+Sidebar.propTypes = {
+  mode: PropTypes.string.isRequired,
+  setMode: PropTypes.func.isRequired,
+};
 
 export default Sidebar;
